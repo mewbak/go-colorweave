@@ -18,6 +18,8 @@ import (
 func FindClosestColor(RequestedColor []int, mode string) string {
      MinColors := make(map[int]string)
      var ColorMap map[string]string
+
+     // css3 gives the shades while css21 gives the primary or base colors
      if mode == "css3" {
           ColorMap = gwc.CSS3NamesToHex
      } else {
@@ -40,6 +42,8 @@ func FindClosestColor(RequestedColor []int, mode string) string {
      return MinColors[keys[0]]
 }
 
+// This method creates a reverse map
+
 func ReverseMap(m map[string]int) map[int]string {
     n := make(map[int]string)
     for k, v := range m {
@@ -59,6 +63,7 @@ func main() {
           fmt.Fprintf(os.Stderr, "%s", err)
      }
 
+     // Resize the image to smaller scale for faster computation
      image = resize.Resize(100, 0, image, resize.Bilinear)
      bounds := image.Bounds()
 
@@ -81,6 +86,7 @@ func main() {
           }
      }
 
+     // Sort by the frequency of each color
      keys := make([]int, 0, len(ColorCounter))
      for _, val := range ColorCounter {
           keys = append(keys, val)
@@ -89,6 +95,7 @@ func main() {
 
      ReverseColorCounter := ReverseMap(ColorCounter)
 
+     // Display the top N dominant colors from the image
      for _, val := range keys[(len(keys) - Limit):] {
           fmt.Printf("%s %.2f%%\n", ReverseColorCounter[val], ((float64(val) / float64(TotalPixels)) * 100))
      }
