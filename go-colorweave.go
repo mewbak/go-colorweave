@@ -49,7 +49,7 @@ func ReverseMap(m map[string]int) map[int]string {
 }
 
 func main() {
-     reader, err := os.Open("images/image1.png")
+     reader, err := os.Open("images/test.jpg")
      if err != nil {
           fmt.Fprintf(os.Stderr, "%v\n", err)
      }
@@ -63,7 +63,7 @@ func main() {
      bounds := image.Bounds()
 
      ColorCounter := make(map[string]int)
-     Limit := 3 // Limiting how many colors to be displayed in output
+     Limit := 5 // Limiting how many colors to be displayed in output
      TotalPixels := bounds.Max.X * bounds.Max.Y
 
      for i := 0; i <= bounds.Max.X; i++ {
