@@ -14,7 +14,6 @@ import (
 )
 
 // This method finds the closest color for a given RGB tuple and returns the name of the color in given mode
-
 func FindClosestColor(RequestedColor []int, mode string) string {
      MinColors := make(map[int]string)
      var ColorMap map[string]string
@@ -43,7 +42,6 @@ func FindClosestColor(RequestedColor []int, mode string) string {
 }
 
 // This method creates a reverse map
-
 func ReverseMap(m map[string]int) map[int]string {
     n := make(map[int]string)
     for k, v := range m {
@@ -57,6 +55,7 @@ func main() {
      if err != nil {
           fmt.Fprintf(os.Stderr, "%v\n", err)
      }
+     defer reader.Close()
 
      image, _, err := image.Decode(reader)
      if err != nil {
