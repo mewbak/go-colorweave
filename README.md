@@ -23,9 +23,9 @@ The following image has been used as example:
 The program will give the following output when used agains the image above:
 
 ```
-aqua 11.03%
+green 26.77%
+silver 19.77%
+olive 16.79%
 grey 14.47%
-olive 16.28%
-silver 19.75%
-green 27.36%
+aqua 11.01%
 ```
