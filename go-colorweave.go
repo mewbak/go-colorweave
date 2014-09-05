@@ -90,12 +90,12 @@ func main() {
      for _, val := range ColorCounter {
           keys = append(keys, val)
      }
-     sort.Ints(keys)
+     sort.Sort(sort.Reverse(sort.IntSlice(keys)))
 
      ReverseColorCounter := ReverseMap(ColorCounter)
 
      // Display the top N dominant colors from the image
-     for _, val := range keys[(len(keys) - Limit):] {
+     for _, val := range keys[:Limit] {
           fmt.Printf("%s %.2f%%\n", ReverseColorCounter[val], ((float64(val) / float64(TotalPixels)) * 100))
      }
 }
